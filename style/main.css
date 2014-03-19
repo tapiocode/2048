@@ -53,7 +53,9 @@ h1.title {
   float: right;
   text-align: right; }
 
-.score-container, .best-container {
+.score-container,
+.best-container,
+.times-best-container {
   position: relative;
   display: inline-block;
   background: #bbada0;
@@ -66,7 +68,9 @@ h1.title {
   color: white;
   margin-top: 8px;
   text-align: center; }
-  .score-container:after, .best-container:after {
+  .score-container:after,
+  .best-container:after,
+  .times-best-container:after {
     position: absolute;
     width: 100%;
     top: 10px;
@@ -76,7 +80,9 @@ h1.title {
     line-height: 13px;
     text-align: center;
     color: #eee4da; }
-  .score-container .score-addition, .best-container .score-addition {
+  .score-container .score-addition,
+  .best-container .score-addition,
+  .times-best-container .score-addition {
     position: absolute;
     right: 30px;
     color: red;
@@ -97,6 +103,31 @@ h1.title {
 
 .best-container:after {
   content: "Best"; }
+
+.times-best-container {
+  display: block;
+  height: initial;
+  padding: 25px 25px 15px;
+  font-size: 16px;
+  line-height: 16px;
+  margin: 0 auto;
+  white-space: nowrap; }
+  .times-best-container:after {
+    content: "Best Times"; }
+
+.times-best {
+  text-align: right; }
+  .times-best .block {
+    display: inline-block;
+    background-color: #888;
+    padding: 3px;
+    margin: 2px;
+    width: 50px;
+    text-align: center; }
+
+.third {
+  display: inline-block;
+  width: 33%; }
 
 p {
   margin-top: 0;
@@ -144,7 +175,7 @@ hr {
     opacity: 1; } }
 
 .game-container {
-  margin-top: 40px;
+  margin-top: 20px;
   position: relative;
   padding: 15px;
   cursor: default;
@@ -316,10 +347,10 @@ hr {
     font-size: 55px; }
   .tile.tile-2 .tile-inner {
     background: #eee4da;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
+    box-shadow: 0 0 30px 10px rgba(190, 151, 16, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
   .tile.tile-4 .tile-inner {
     background: #ede0c8;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
+    box-shadow: 0 0 30px 10px rgba(190, 151, 16, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
   .tile.tile-8 .tile-inner {
     color: #f9f6f2;
     background: #f2b179; }
@@ -334,32 +365,28 @@ hr {
     background: #f65e3b; }
   .tile.tile-128 .tile-inner {
     color: #f9f6f2;
-    background: #edcf72;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.2381), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
+    background: #b4d28b;
     font-size: 45px; }
     @media screen and (max-width: 520px) {
       .tile.tile-128 .tile-inner {
         font-size: 25px; } }
   .tile.tile-256 .tile-inner {
     color: #f9f6f2;
-    background: #edcc61;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.31746), inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
+    background: #8dbf54;
     font-size: 45px; }
     @media screen and (max-width: 520px) {
       .tile.tile-256 .tile-inner {
         font-size: 25px; } }
   .tile.tile-512 .tile-inner {
     color: #f9f6f2;
-    background: #edc850;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.39683), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
+    background: #839a78;
     font-size: 45px; }
     @media screen and (max-width: 520px) {
       .tile.tile-512 .tile-inner {
         font-size: 25px; } }
   .tile.tile-1024 .tile-inner {
     color: #f9f6f2;
-    background: #edc53f;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
+    background: #92897c;
     font-size: 35px; }
     @media screen and (max-width: 520px) {
       .tile.tile-1024 .tile-inner {
@@ -367,7 +394,7 @@ hr {
   .tile.tile-2048 .tile-inner {
     color: #f9f6f2;
     background: #edc22e;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
+    box-shadow: 0 0 30px 10px rgba(190, 151, 16, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
     font-size: 35px; }
     @media screen and (max-width: 520px) {
       .tile.tile-2048 .tile-inner {
@@ -485,7 +512,7 @@ hr {
   animation-fill-mode: backwards; }
 
 .game-intro {
-  margin-bottom: 0; }
+  margin: 20px 0; }
 
 .game-explanation {
   margin-top: 50px; }
@@ -515,7 +542,7 @@ hr {
     margin-bottom: 10px; }
 
   .game-container {
-    margin-top: 40px;
+    margin-top: 20px;
     position: relative;
     padding: 10px;
     cursor: default;

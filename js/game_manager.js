@@ -3,6 +3,7 @@ function GameManager(size, InputManager, Actuator, ScoreManager) {
   this.inputManager = new InputManager;
   this.scoreManager = new ScoreManager;
   this.actuator     = new Actuator;
+  this.timer        = new Timer;
 
   this.startTiles   = 2;
 
@@ -138,6 +139,9 @@ GameManager.prototype.move = function (direction) {
 
           // Update the score
           self.score += merged.value;
+
+          // Update timer scores
+          self.timer.tileMerged(merged.value);
 
           // The mighty 2048 tile
           if (merged.value === 2048) self.won = true;
