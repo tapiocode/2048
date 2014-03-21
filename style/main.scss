@@ -124,6 +124,7 @@ h1.title {
   line-height: 16px;
   margin: 0 auto;
   white-space: nowrap;
+
   &:after {
     content: "Best Times";
   }
@@ -140,10 +141,32 @@ h1.title {
     text-align: center;
   }
 }
-
 .third {
   display: inline-block;
   width: 33%;
+}
+.timer {
+  margin: 10px 0 5px;
+  font-size: 30px;
+}
+#timer-clock {
+  margin-left: 37%;
+}
+#times-best-notifier {
+  position: absolute;
+  background-color: red;
+  height: 0px;
+  width: 460px;
+  line-height: 50px;
+  font-size: 2em;
+  overflow: hidden;
+
+  @include transition($transition-speed ease-in-out);
+  @include transition-property(height);
+
+  &.notify {
+    height: 50px;
+  }
 }
 
 p {
@@ -202,7 +225,6 @@ hr {
 // Game field mixin used to render CSS at different width
 @mixin game-field {
   .game-container {
-    margin-top: 20px;
     position: relative;
     padding: $grid-spacing;
 
@@ -369,10 +391,10 @@ hr {
                    #fc5e2e true, // 16
                    #ff3333 true, // 32
                    #ff0000 true, // 64
-                   #86D6A0 true, // 128
-                   #40B64B true, // 256
-                   #2E7699 true, // 512
-                   #4959AF true, // 1024
+                   false true, // 128
+                   false true, // 256
+                   false true, // 512
+                   false true, // 1024
                    false true; // 2048
 
   // Build tile colors
@@ -479,7 +501,7 @@ hr {
 }
 
 .game-intro {
-  margin: 20px 0;
+  margin: 0 0 10px 0;
 }
 
 .game-explanation {

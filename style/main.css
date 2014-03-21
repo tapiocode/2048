@@ -129,6 +129,30 @@ h1.title {
   display: inline-block;
   width: 33%; }
 
+.timer {
+  margin: 10px 0 5px;
+  font-size: 30px; }
+
+#timer-clock {
+  margin-left: 37%; }
+
+#times-best-notifier {
+  position: absolute;
+  background-color: red;
+  height: 0px;
+  width: 460px;
+  line-height: 50px;
+  font-size: 2em;
+  overflow: hidden;
+  -webkit-transition: 100ms ease-in-out;
+  -moz-transition: 100ms ease-in-out;
+  transition: 100ms ease-in-out;
+  -webkit-transition-property: height;
+  -moz-transition-property: height;
+  transition-property: height; }
+  #times-best-notifier.notify {
+    height: 50px; }
+
 p {
   margin-top: 0;
   margin-bottom: 10px;
@@ -175,7 +199,6 @@ hr {
     opacity: 1; } }
 
 .game-container {
-  margin-top: 20px;
   position: relative;
   padding: 15px;
   cursor: default;
@@ -366,28 +389,32 @@ hr {
     background: #f65e3b; }
   .tile.tile-128 .tile-inner {
     color: #f9f6f2;
-    background: #b4d28b;
+    background: #edcf72;
+    box-shadow: 0 0 30px 10px rgba(190, 151, 16, 0.2381), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
     font-size: 45px; }
     @media screen and (max-width: 520px) {
       .tile.tile-128 .tile-inner {
         font-size: 25px; } }
   .tile.tile-256 .tile-inner {
     color: #f9f6f2;
-    background: #8dbf54;
+    background: #edcc61;
+    box-shadow: 0 0 30px 10px rgba(190, 151, 16, 0.31746), inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
     font-size: 45px; }
     @media screen and (max-width: 520px) {
       .tile.tile-256 .tile-inner {
         font-size: 25px; } }
   .tile.tile-512 .tile-inner {
     color: #f9f6f2;
-    background: #839a78;
+    background: #edc850;
+    box-shadow: 0 0 30px 10px rgba(190, 151, 16, 0.39683), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
     font-size: 45px; }
     @media screen and (max-width: 520px) {
       .tile.tile-512 .tile-inner {
         font-size: 25px; } }
   .tile.tile-1024 .tile-inner {
     color: #f9f6f2;
-    background: #92897c;
+    background: #edc53f;
+    box-shadow: 0 0 30px 10px rgba(190, 151, 16, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
     font-size: 35px; }
     @media screen and (max-width: 520px) {
       .tile.tile-1024 .tile-inner {
@@ -513,7 +540,7 @@ hr {
   animation-fill-mode: backwards; }
 
 .game-intro {
-  margin: 20px 0; }
+  margin: 0 0 10px 0; }
 
 .game-explanation {
   margin-top: 50px; }
@@ -543,7 +570,6 @@ hr {
     margin-bottom: 10px; }
 
   .game-container {
-    margin-top: 20px;
     position: relative;
     padding: 10px;
     cursor: default;

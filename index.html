@@ -22,33 +22,39 @@
         <div class="best-container">0</div>
       </div>
     </div>
+    <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
     <div class="times-best-container">
+      <div id="times-best-notifier">
+        notification
+      </div>
       <div class="third">
-        <div class="times-best times-best-64">
-            <span class="block">64</span> <span class="time">00:00:00</span>
+        <div class="times-best">
+            <span class="block">64</span> <span id="times-best-64" class="time"></span>
         </div>
-        <div class="times-best times-best-128">
-            <span class="block">128</span> <span class="time">00:00:00</span>
+        <div class="times-best">
+            <span class="block">128</span> <span id="times-best-128" class="time"></span>
         </div>
       </div>
       <div class="third">
-        <div class="times-best times-best-256">
-            <span class="block">256</span> <span class="time">00:00:00</span>
+        <div class="times-best">
+            <span class="block">256</span> <span id="times-best-256" class="time"></span>
         </div>
-        <div class="times-best times-best-512">
-            <span class="block">512</span> <span class="time">00:00:00</span>
+        <div class="times-best">
+            <span class="block">512</span> <span id="times-best-512" class="time"></span>
         </div>
       </div>
       <div class="third">
-        <div class="times-best times-best-1024">
-            <span class="block">1024</span> <span class="time">00:00:00</span>
+        <div class="times-best">
+            <span class="block">1024</span> <span id="times-best-1024" class="time"></span>
         </div>
-        <div class="times-best times-best-2048">
-            <span class="block">2048</span> <span class="time">00:00:00</span>
+        <div class="times-best">
+            <span class="block">2048</span> <span id="times-best-2048" class="time"></span>
         </div>
       </div>
     </div>
-    <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
+    <div class="timer">
+      <span id="timer-clock"></span>
+    </div>
     <div class="game-container">
       <div class="game-message">
         <p></p>
@@ -111,6 +117,8 @@
   <script src="js/local_score_manager.js"></script>
   <script src="js/game_manager.js"></script>
   <script src="js/timer.js"></script>
+  <script src="js/times_best.js"></script>
+  <script src="js/timer_manager.js"></script>
   <script src="js/application.js"></script>
 </body>
 </html>
