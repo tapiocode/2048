@@ -1,13 +1,18 @@
-function TimesBest() {
-	this.timesContainer = {};
-	this.notifierElem = document.getElementById('times-best-notifier');
+function TimesBest(StorageManager) {
+	this.storageManager	= new StorageManager;
+	this.keyBestTimes	= "bestTimes";
+	this.timesContainer	= {};
+	this.notifierElem	= document.getElementById('times-best-notifier');
 }
 
 TimesBest.prototype.init = function() {
 	// Values of blockSizes correspond to the divs on index.html
-	var blockSizes = ['64', '128', '256', '512', '1024', '2048'];
+	var storedBestTimes = JSON.parse(this.storageManager.get(this.keyBestTimes) || "{}"),
+		blockSizes = ['64', '128', '256', '512', '1024', '2048'],
+		id;
 	for (var i = 0; i < blockSizes.length; i++) {
-		this.timesContainer['times-best-' + blockSizes[i]] = 0;
+		id = 'times-best-' + blockSizes[i];
+		this.timesContainer[id] = storedBestTimes[id] || 0;
 	}
 	this.renderTimes();
 }
@@ -28,16 +33,17 @@ TimesBest.prototype.setBlockTime = function(blockSize, timeMillisec) {
 }
 
 TimesBest.prototype.renderTimes = function() {
-	for (var i in this.timesContainer) {
-		document.getElementById(i).textContent = Timer.getFormatted(this.timesContainer[i]);
+	var times = this.timesContainer;
+	for (var i in times) {
+		document.getElementById(i).textContent = Timer.getFormatted(times[i]);
 	}
+	this.storageManager.set(this.keyBestTimes, JSON.stringify(times));
 }
 
 TimesBest.prototype.flash = function(blockSize, timeMillisec) {
 	// Display a short notification on top of the times
 	var notification = blockSize + ' ' + Timer.getFormatted(timeMillisec),
 		self = this;
-	console.log(notification);
 	if (!document.querySelectorAll ||
 		typeof document.querySelectorAll !== 'function') {
 		return;

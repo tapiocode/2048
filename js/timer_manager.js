@@ -1,9 +1,9 @@
 function TimerManager() {
 	this.timer = new Timer;
-	this.timesBest = new TimesBest;
-	this.timesBest.init();
+	this.timesBest = new TimesBest(LocalStorageManager);
 	this.intervalId = null;
 	this.timerClockElem = document.getElementById('timer-clock');
+	this.timesBest.init();
 }
 
 TimerManager.prototype.start = function() {
@@ -31,7 +31,6 @@ TimerManager.prototype.continue = function() {
 TimerManager.prototype.tileMerged = function(tileValue) {
 	var time = this.timer.getTime();
 	this.timesBest.setBlockTime(tileValue, time);
-	console.log('merged: ' + tileValue + ', time: ' + time);
 }
 
 TimerManager.prototype.startDrawingTime = function(cont) {

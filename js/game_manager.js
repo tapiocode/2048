@@ -1,11 +1,13 @@
-function GameManager(size, InputManager, Actuator, ScoreManager, TimerManager) {
-  this.size         = size; // Size of the grid
-  this.inputManager = new InputManager;
-  this.scoreManager = new ScoreManager;
-  this.actuator     = new Actuator;
-  this.timerManager = new TimerManager;
+function GameManager(size, InputManager, Actuator, StorageManager, TimerManager) {
+  this.size             = size; // Size of the grid
+  this.inputManager     = new InputManager;
+  this.storageManager   = new StorageManager;
+  this.actuator         = new Actuator;
+  this.timerManager     = new TimerManager;
 
-  this.startTiles   = 2;
+  this.startTiles       = 2;
+
+  this.keyBestScore     = "bestScore";
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
@@ -72,15 +74,15 @@ GameManager.prototype.addRandomTile = function () {
 
 // Sends the updated grid to the actuator
 GameManager.prototype.actuate = function () {
-  if (this.scoreManager.get() < this.score) {
-    this.scoreManager.set(this.score);
+  if (this.storageManager.get(this.keyBestScore) < this.score) {
+    this.storageManager.set(this.keyBestScore, this.score);
   }
 
   this.actuator.actuate(this.grid, {
     score:      this.score,
     over:       this.over,
     won:        this.won,
-    bestScore:  this.scoreManager.get(),
+    bestScore:  this.storageManager.get(this.keyBestScore),
     terminated: this.isGameTerminated()
   });
 };

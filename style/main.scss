@@ -129,17 +129,13 @@ h1.title {
     content: "Best Times";
   }
 }
-.times-best {
-  text-align: right;
-
-  .block {
-    display: inline-block;
-    background-color: #888;
-    padding: 3px;
-    margin: 2px;
-    width: 50px;
-    text-align: center;
-  }
+.times-best .block {
+  display: inline-block;
+  background-color: #888;
+  padding: 3px;
+  margin: 2px;
+  width: 50px;
+  text-align: center;
 }
 .third {
   display: inline-block;
