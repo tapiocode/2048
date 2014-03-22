@@ -122,7 +122,7 @@ h1.title {
   padding: 25px 25px 15px;
   font-size: 16px;
   line-height: 16px;
-  margin: 0 auto;
+  margin: 0 0 10px 0;
   white-space: nowrap;
 
   &:after {
@@ -142,11 +142,10 @@ h1.title {
   width: 33%;
 }
 .timer {
-  margin: 10px 0 5px;
   font-size: 30px;
-}
-#timer-clock {
-  margin-left: 37%;
+  line-height: 30px;
+  text-align: left;
+  margin-left: 12px;
 }
 #times-best-notifier {
   position: absolute;
@@ -163,6 +162,9 @@ h1.title {
   &.notify {
     height: 50px;
   }
+}
+#times-reset {
+  margin-bottom: 5px;
 }
 
 p {
@@ -501,7 +503,7 @@ hr {
 }
 
 .game-explanation {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 @include smaller($mobile-threshold) {

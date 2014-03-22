@@ -110,7 +110,7 @@ h1.title {
   padding: 25px 25px 15px;
   font-size: 16px;
   line-height: 16px;
-  margin: 0 auto;
+  margin: 0 0 10px 0;
   white-space: nowrap; }
   .times-best-container:after {
     content: "Best Times"; }
@@ -128,11 +128,10 @@ h1.title {
   width: 33%; }
 
 .timer {
-  margin: 10px 0 5px;
-  font-size: 30px; }
-
-#timer-clock {
-  margin-left: 37%; }
+  font-size: 30px;
+  line-height: 30px;
+  text-align: left;
+  margin-left: 12px; }
 
 #times-best-notifier {
   position: absolute;
@@ -150,6 +149,9 @@ h1.title {
   transition-property: height; }
   #times-best-notifier.notify {
     height: 50px; }
+
+#times-reset {
+  margin-bottom: 5px; }
 
 p {
   margin-top: 0;
@@ -541,7 +543,7 @@ hr {
   margin: 0 0 10px 0; }
 
 .game-explanation {
-  margin-top: 50px; }
+  margin-top: 20px; }
 
 @media screen and (max-width: 520px) {
   html, body {

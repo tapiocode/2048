@@ -24,17 +24,7 @@
     </div>
     <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
     <div class="times-best-container">
-      <div id="times-best-notifier">
-        notification
-      </div>
-      <div class="third">
-        <div class="times-best">
-            <span class="block">64</span> <span id="times-best-64" class="time"></span>
-        </div>
-        <div class="times-best">
-            <span class="block">128</span> <span id="times-best-128" class="time"></span>
-        </div>
-      </div>
+      <div id="times-best-notifier"></div>
       <div class="third">
         <div class="times-best">
             <span class="block">256</span> <span id="times-best-256" class="time"></span>
@@ -51,9 +41,12 @@
             <span class="block">2048</span> <span id="times-best-2048" class="time"></span>
         </div>
       </div>
-    </div>
-    <div class="timer">
-      <span id="timer-clock"></span>
+      <div class="third">
+        <button id="times-reset" onclick="Timer">Reset Best Times</button>
+        <div class="timer">
+          <span id="timer-clock"></span>
+        </div>
+      </div>
     </div>
     <div class="game-container">
       <div class="game-message">
@@ -95,17 +88,19 @@
 
       </div>
     </div>
-
     <p class="game-explanation">
-      <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>
+      <strong>Arrow</strong> and <strong>W A S D</strong> keys move the tiles. When two tiles with the same number bump, <strong>they merge</strong>.
+    </p>
+    <p class="game-explanation">
+      <strong>Space key</strong> restarts the game.
     </p>
     <hr>
     <p>
-    <strong class="important">Note:</strong> This site is the official version of 2048. You can play it on your phone via <a href="http://git.io/2048">http://git.io/2048.</a> All other apps or sites are derivatives or fakes, and should be used with caution.
+    <strong class="important">Note:</strong> The official version of <strong>2048</strong> by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli</a> can be seen here: <a href="http://git.io/2048">http://git.io/2048.</a>
     </p>
     <hr>
     <p>
-    Created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
+    Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
     </p>
   </div>
 
