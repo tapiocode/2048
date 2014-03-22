@@ -15,6 +15,7 @@ module.exports = function(grunt) {
     },
     watch: {
       options: {
+        // Using Chrome LiveReload extension 
         livereload: true
       },
       sass: {

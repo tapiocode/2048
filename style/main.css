@@ -137,9 +137,9 @@ h1.title {
   position: absolute;
   background-color: red;
   height: 0px;
-  width: 460px;
-  line-height: 50px;
-  font-size: 2em;
+  width: 60%;
+  line-height: 65px;
+  font-size: 40px;
   overflow: hidden;
   -webkit-transition: 100ms ease-in-out;
   -moz-transition: 100ms ease-in-out;
@@ -148,7 +148,7 @@ h1.title {
   -moz-transition-property: height;
   transition-property: height; }
   #times-best-notifier.notify {
-    height: 50px; }
+    height: 60px; }
 
 #times-reset {
   margin-bottom: 5px; }
@@ -288,7 +288,7 @@ hr {
 .tile, .tile .tile-inner {
   width: 107px;
   height: 107px;
-  line-height: 116.25px; }
+  line-height: 117px; }
 .tile.tile-position-1-1 {
   -webkit-transform: translate(0px, 0px);
   -moz-transform: translate(0px, 0px);
@@ -659,7 +659,7 @@ hr {
   .tile, .tile .tile-inner {
     width: 58px;
     height: 58px;
-    line-height: 67.5px; }
+    line-height: 68px; }
   .tile.tile-position-1-1 {
     -webkit-transform: translate(0px, 0px);
     -moz-transform: translate(0px, 0px);

@@ -2,6 +2,8 @@ function Timer() {
   this.time = null;
 }
 
+Timer.MAX_TIME_MS = 3600000;
+
 Timer.getFormatted = function(timeMillisec) {
   function pad(num) {
     return (num < 10 ? '0' : '') + num;
@@ -25,10 +27,13 @@ Timer.prototype.reset = function() {
 }
 
 Timer.prototype.getTime = function() {
-  if (this.time === null) {
-    return 0;
+  var passed = 0;
+  if (this.time !== null) {
+    passed = this._getNow() - this.time;
+    // Prevent overflow
+    passed = passed < Timer.MAX_TIME_MS ? passed : Timer.MAX_TIME_MS - 10;
   }
-  return this._getNow() - this.time;
+  return passed;
 }
 
 Timer.prototype._getNow = function() {

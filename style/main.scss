@@ -151,16 +151,16 @@ h1.title {
   position: absolute;
   background-color: red;
   height: 0px;
-  width: 460px;
-  line-height: 50px;
-  font-size: 2em;
+  width: 60%;
+  line-height: 65px;
+  font-size: 40px;
   overflow: hidden;
 
   @include transition($transition-speed ease-in-out);
   @include transition-property(height);
 
   &.notify {
-    height: 50px;
+    height: 60px;
   }
 }
 #times-reset {
@@ -339,7 +339,7 @@ hr {
     &, .tile-inner {
       width: ceil($tile-size);
       height: ceil($tile-size);
-      line-height: $tile-size + 10px;
+      line-height: ceil($tile-size + 10px);
     }
 
     // Build position classes
