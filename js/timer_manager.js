@@ -6,6 +6,8 @@ function TimerManager() {
   this.timesBest.init();
 }
 
+TimerManager.TIMER_REFRESH_RATE_MS = 115;
+
 TimerManager.prototype.start = function() {
   this.timer.start();
   this.startDrawingTime();
@@ -38,7 +40,7 @@ TimerManager.prototype.startDrawingTime = function(cont) {
   if (this.intervalId === null || cont) {
     this.intervalId = setInterval(function() {
       self.timerClockElem.textContent = Timer.getFormatted(self.timer.getTime());
-    }, 50);
+    }, TimerManager.TIMER_REFRESH_RATE_MS);
   }
 }
 
