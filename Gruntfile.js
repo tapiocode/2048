@@ -4,6 +4,7 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     connect: {
+      // By default, opens a server on http://localhost:8000
       server: {}
     },
     sass: {
