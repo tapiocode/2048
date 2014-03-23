@@ -5,7 +5,7 @@ Added a timer which records your fastest times to reach tiles 256, 512, 1024, an
 
 Times are shown as ***[minutes]:[seconds]:[hundredth of a second]***.
 
-[Play 2048 with timer!](http://vthyyryn.github.io/2048/)
+[Play 2048 with timer!](http://tapiocode.github.io/2048/)
 
 ### Contributions, Contributing, License, Donations
 
