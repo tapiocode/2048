@@ -7,7 +7,7 @@ Times are shown as ***[minutes]:[seconds]:[hundredth of a second]***.
 
 [Play 2048 with timer!](http://tapiocode.github.io/2048/)
 
-### Contributions, Contributing, License, Donations
+### Contributions, Contributing, Donations
 
 See [gabrielecirulli/2048](https://github.com/gabrielecirulli/2048).
 
