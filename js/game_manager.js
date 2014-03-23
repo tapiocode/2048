@@ -1,10 +1,13 @@
-function GameManager(size, InputManager, Actuator, ScoreManager) {
-  this.size         = size; // Size of the grid
-  this.inputManager = new InputManager;
-  this.scoreManager = new ScoreManager;
-  this.actuator     = new Actuator;
+function GameManager(size, InputManager, Actuator, StorageManager, TimerManager) {
+  this.size             = size; // Size of the grid
+  this.inputManager     = new InputManager;
+  this.storageManager   = new StorageManager;
+  this.actuator         = new Actuator;
+  this.timerManager     = new TimerManager;
 
-  this.startTiles   = 2;
+  this.startTiles       = 2;
+
+  this.keyBestScore     = "bestScore";
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
@@ -23,10 +26,12 @@ GameManager.prototype.restart = function () {
 GameManager.prototype.keepPlaying = function () {
   this.keepPlaying = true;
   this.actuator.continue();
+  this.timerManager.continue();
 };
 
 GameManager.prototype.isGameTerminated = function () {
   if (this.over || (this.won && !this.keepPlaying)) {
+    this.timerManager.stop();
     return true;
   } else {
     return false;
@@ -47,6 +52,7 @@ GameManager.prototype.setup = function () {
 
   // Update the actuator
   this.actuate();
+  this.timerManager.reset();
 };
 
 // Set up the initial tiles to start the game with
@@ -68,18 +74,17 @@ GameManager.prototype.addRandomTile = function () {
 
 // Sends the updated grid to the actuator
 GameManager.prototype.actuate = function () {
-  if (this.scoreManager.get() < this.score) {
-    this.scoreManager.set(this.score);
+  if (this.storageManager.get(this.keyBestScore) < this.score) {
+    this.storageManager.set(this.keyBestScore, this.score);
   }
 
   this.actuator.actuate(this.grid, {
     score:      this.score,
     over:       this.over,
     won:        this.won,
-    bestScore:  this.scoreManager.get(),
+    bestScore:  this.storageManager.get(this.keyBestScore),
     terminated: this.isGameTerminated()
   });
-
 };
 
 // Save all tile positions and remove merger info
@@ -139,6 +144,9 @@ GameManager.prototype.move = function (direction) {
           // Update the score
           self.score += merged.value;
 
+          // Update timer scores
+          self.timerManager.tileMerged(merged.value);
+
           // The mighty 2048 tile
           if (merged.value === 2048) self.won = true;
         } else {
@@ -147,6 +155,7 @@ GameManager.prototype.move = function (direction) {
 
         if (!self.positionsEqual(cell, tile)) {
           moved = true; // The tile moved from its original cell!
+          self.timerManager.start();
         }
       }
     });

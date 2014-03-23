@@ -14,7 +14,7 @@ $bright-text-color: #f9f6f2;
 
 $tile-color: #eee4da;
 $tile-gold-color: #edc22e;
-$tile-gold-glow-color: lighten($tile-gold-color, 15%);
+$tile-gold-glow-color: darken($tile-gold-color, 15%);
 
 $game-container-background: #bbada0;
 
@@ -65,7 +65,9 @@ h1.title {
   text-align: right;
 }
 
-.score-container, .best-container {
+.score-container,
+.best-container,
+.times-best-container {
   $height: 25px;
 
   position: relative;
@@ -113,6 +115,56 @@ h1.title {
 
 .best-container:after {
   content: "Best"
+}
+.times-best-container {
+  display: block;
+  height: initial;
+  padding: 25px 25px 15px;
+  font-size: 16px;
+  line-height: 16px;
+  margin: 0 0 10px 0;
+  white-space: nowrap;
+
+  &:after {
+    content: "Best Times";
+  }
+}
+.times-best .block {
+  display: inline-block;
+  background-color: #888;
+  padding: 3px;
+  margin: 2px;
+  width: 50px;
+  text-align: center;
+}
+.third {
+  display: inline-block;
+  width: 33%;
+}
+.timer {
+  font-size: 30px;
+  line-height: 30px;
+  text-align: left;
+  margin-left: 12px;
+}
+#times-best-notifier {
+  position: absolute;
+  background-color: red;
+  height: 0px;
+  width: 60%;
+  line-height: 65px;
+  font-size: 40px;
+  overflow: hidden;
+
+  @include transition($transition-speed ease-in-out);
+  @include transition-property(height);
+
+  &.notify {
+    height: 60px;
+  }
+}
+#times-reset {
+  margin-bottom: 5px;
 }
 
 p {
@@ -171,7 +223,6 @@ hr {
 // Game field mixin used to render CSS at different width
 @mixin game-field {
   .game-container {
-    margin-top: 40px;
     position: relative;
     padding: $grid-spacing;
 
@@ -294,7 +345,7 @@ hr {
     &, .tile-inner {
       width: ceil($tile-size);
       height: ceil($tile-size);
-      line-height: $tile-size + 10px;
+      line-height: ceil($tile-size + 10px);
     }
 
     // Build position classes
@@ -454,11 +505,11 @@ hr {
 }
 
 .game-intro {
-  margin-bottom: 0;
+  margin: 0 0 10px 0;
 }
 
 .game-explanation {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .sharing {
@@ -532,13 +583,27 @@ hr {
       margin-top: 30px !important;
     }
   }
-
   .sharing {
     > iframe, > span, > form {
       display: block;
       margin: 0 auto;
       margin-bottom: 20px;
     }
+  }
+  
+  .times-best-container {
+    white-space: initial;
+  }
+  .third {
+    width: 100%;
+  }
+  .timer {
+    margin-left: 50px;
+  }
+  #times-best-notifier.notify {
+    width: 85%;
+    top: 130px;
+    font-size: 30px;
   }
 }
 
